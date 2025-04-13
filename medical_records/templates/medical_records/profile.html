@@ -1,0 +1,15 @@
+{% extends 'medical_records/base.html' %}
+
+{% block content %}
+  <h2>Profile</h2>
+  {% if person %}
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Name:</strong> {{ person.name }}</li>
+      <li class="list-group-item"><strong>Age:</strong> {{ person.age }}</li>
+      <li class="list-group-item"><strong>Gender:</strong> {{ person.gender }}</li>
+      <li class="list-group-item"><strong>Contact:</strong> {{ person.contact }}</li>
+    </ul>
+  {% else %}
+    <p>No profile found. <a href="{% url 'add_profile' %}">Add one</a>.</p>
+  {% endif %}
+{% endblock %}

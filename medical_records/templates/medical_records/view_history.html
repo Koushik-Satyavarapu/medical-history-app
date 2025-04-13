@@ -1,0 +1,14 @@
+{% extends 'medical_records/base.html' %}
+
+{% block content %}
+  <h2>Medical History</h2>
+  {% for record in records %}
+    <div class="card mb-3 p-3">
+      <h5>{{ record.title }}</h5>
+      <p>{{ record.description }}</p>
+      <small class="text-muted">{{ record.date }}</small>
+    </div>
+  {% empty %}
+    <p>No medical records yet. <a href="{% url 'add_record' %}">Add one</a>.</p>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'medical_records/base.html' %}
+
+{% block content %}
+  <h2>Add Medical Record</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success btn-lg mt-3" style="transition: 0.3s ease;">Add Record</button>
+</form>
+{% endblock %}
