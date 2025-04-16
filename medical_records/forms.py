@@ -1,10 +1,12 @@
 from django import forms
 from .models import PersonalDetails, MedicalHistory
 
+
 class PersonalDetailsForm(forms.ModelForm):
     class Meta:
         model = PersonalDetails
-        fields = '__all__'
+        fields = ['name', 'age', 'gender', 'contact']
+
 
 class MedicalHistoryForm(forms.ModelForm):
     class Meta:

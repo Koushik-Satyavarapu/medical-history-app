@@ -1,0 +1,13 @@
+{% extends 'medical_records/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4 text-primary">Edit Profile</h2>
+  <form method="POST" class="card p-4 shadow-sm">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Save Changes</button>
+    <a href="{% url 'profile' %}" class="btn btn-secondary ml-2">Cancel</a>
+  </form>
+</div>
+{% endblock %}

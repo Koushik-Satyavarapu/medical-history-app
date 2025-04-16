@@ -2,16 +2,15 @@
 
 {% block content %}
 <div class="container mt-5">
-  <!-- Hero Section with Light Blue Background -->
   <section class="hero bg-lightblue text-white text-center py-5">
     <div class="container">
       <h1 class="display-4 mb-3">Welcome to HealthLog</h1>
       <p class="lead mb-4">Your personal medical history at your fingertips.</p>
       <a href="{% url 'add_record' %}" class="btn btn-light btn-lg">Add New Record</a>
+      
     </div>
   </section>
 
-  <!-- Profile Section -->
   {% if profile %}
     <div class="p-4 mb-4 bg-softgray rounded shadow-sm">
       <h4 class="text-darkblue mb-1">Welcome, {{ profile.name }}!</h4>
@@ -19,7 +18,6 @@
     </div>
   {% endif %}
 
-  <!-- Recent Medical History Section -->
   <h2 class="mb-4 text-center text-darkblue">Recent Medical History</h2>
 
   {% if recent_records %}
@@ -29,8 +27,14 @@
           <div class="card h-100 shadow-sm border-0 hover-shadow">
             <div class="card-body">
               <h5 class="card-title text-dark">{{ record.title }}</h5>
-              <p class="card-text"><strong>Date:</strong> {{ record.date }}</p>
-              <p class="card-text"><strong>Description:</strong> {{ record.description }}</p>
+<p class="card-text"><strong>Date:</strong> {{ record.date }}</p>
+<p class="card-text"><strong>Description:</strong> {{ record.description }}</p>
+
+<div class="mt-3">
+  <a href="{% url 'edit_record' record.id %}" class="btn btn-sm btn-outline-primary me-2">Edit</a>
+  <a href="{% url 'delete_record' record.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+</div>
+
             </div>
           </div>
         </div>
@@ -42,7 +46,6 @@
 </div>
 {% endblock %}
 
-<!-- Custom Styles -->
 {% block styles %}
 <style>
   /* Hero Section - Light Blue Background */
